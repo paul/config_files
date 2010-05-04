@@ -13,6 +13,12 @@ if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
+# aliases
+if [ -e "$HOME/.ec2" ]; then
+  source "$HOME/.ec2/env.sh"
+fi
+
+
 # vi mode
 bindkey -v
 
@@ -30,3 +36,6 @@ setopt histignoredups
 
 # keep more history
 export HISTSIZE=200
+
+if [[ -s /Users/rando/.rvm/scripts/rvm ]] ; then source /Users/rando/.rvm/scripts/rvm ; fi
+
