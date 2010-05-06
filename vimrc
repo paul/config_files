@@ -22,8 +22,10 @@ map Q gq
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  set t_Co=256
   syntax on
   set nohlsearch
+  colorscheme xoria256
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -59,11 +61,11 @@ else
 endif " has("autocmd")
 
 " if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+"   set foldenable
+"   set foldmethod=syntax
+"   set foldlevel=1
+"   set foldnestmax=2
+"   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
 " endif
 
 " Softtabs, 2 spaces
@@ -153,13 +155,12 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme vividchalk
+"colorscheme vividrando
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number
-set numberwidth=5
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
@@ -174,3 +175,9 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 " Window navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
+
+" make the mouse do cool shit
+set mouse=a
+
