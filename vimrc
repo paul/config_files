@@ -181,3 +181,28 @@ nmap <C-H> <C-W><C-H>
 " make the mouse do cool shit
 set mouse=a
 
+" disable arrow keys
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+map <up> <nop>
+
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+imap <up> <nop>
+
+" Make arrow keys useful again
+map <down> <ESC>:bn<RETURN>
+map <right> <ESC>:bn<RETURN>
+map <left> <ESC>:bp<RETURN>
+map <up> <ESC>:bp<RETURN>
+
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-tab> <C-w>p
+
+nnoremap <Space> :
+
