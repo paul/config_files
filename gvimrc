@@ -1,6 +1,6 @@
 " Font
 set guifont=EnvyCodeR:h12.00
-set noantialias=0
+set noantialias
 
 " No audible bell
 set vb
