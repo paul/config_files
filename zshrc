@@ -11,6 +11,9 @@ export EDITOR=vim
 export PAGER=most
 export SHELL=/bin/zsh
 
+# Homebrew
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
@@ -43,7 +46,7 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 # use incremental search
-bindkey ^R history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
 
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
