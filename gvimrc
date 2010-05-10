@@ -1,5 +1,6 @@
 " Font
-set guifont=Monaco:h15.00
+set guifont=EnvyCodeR:h12.00
+set noantialias=0
 
 " No audible bell
 set vb
@@ -9,6 +10,11 @@ set guioptions-=T
 
 " Use console dialogs
 set guioptions+=c
+
+if &background == "dark"
+  hi normal guibg=black
+  set transp=8
+endif
 
 " Local config
 if filereadable($HOME . "/.gvimrc.local")
