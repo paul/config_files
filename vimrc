@@ -24,9 +24,76 @@ map Q gq
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set t_Co=256
   syntax on
-  set nohlsearch
   colorscheme xoria256
 endif
+
+" Do clever indent things. Dont make comments force column 0
+set autoindent
+set smartindent
+
+set viminfo='1000,f1,:1000,/1000
+set history=500
+
+" Try to show more context when scrolling
+set scrolloff=5
+set sidescrolloff=10
+
+" Softtabs, 2 spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Always display the status line
+set laststatus=2
+
+" make the mouse do cool shit
+set mouse=a
+
+" Write files when switching buffers
+set autowriteall
+
+" Search options
+set hlsearch
+set incsearch
+
+" Show full tags when searching
+set showfulltag
+
+" There are not word dividers
+set iskeyword=@,$,_
+
+" Dont pollute with swapfiles
+set noswapfile
+set nobackup
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
+" Color scheme
+"colorscheme vividrando
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Numbers
+set number
+
+" Snippets are activated by Shift+Tab
+let g:snippetsEmu_key = "<S-Tab>"
+
+" Use the cool tabcomplete menu
+set wildmenu
+" Tab completion options
+"set wildmode=list:longest,list:full
+"set complete=.,t
+
+" Tags
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -67,14 +134,6 @@ endif " has("autocmd")
 "   set foldnestmax=2
 "   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
 " endif
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Always display the status line
-set laststatus=2
 
 " \ is the leader character
 let mapleader = "\\"
@@ -137,9 +196,6 @@ imap <C-F> <C-R>=expand("%")<CR>
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
-
 " Edit routes
 command! Rroutes :e config/routes.rb
 command! RTroutes :tabe config/routes.rb
@@ -149,37 +205,11 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
-endif
-
-" Color scheme
-"colorscheme vividrando
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
-" Numbers
-set number
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
-
-" Tab completion options
-set wildmode=list:longest,list:full
-set complete=.,t
-
-" Tags
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-
 " Window navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
-
-" make the mouse do cool shit
-set mouse=a
 
 " disable arrow keys
 map <down> <nop>
@@ -194,8 +224,8 @@ imap <up> <nop>
 
 " Make arrow keys useful again
 map <down> <ESC>:bn<RETURN>
-map <right> <ESC>:bn<RETURN>
-map <left> <ESC>:bp<RETURN>
+map <right> <ESC>:Tlist<RETURN>
+map <left> <ESC>:NERDTreeToggle<RETURN>
 map <up> <ESC>:bp<RETURN>
 
 map <C-l> <C-w>l
