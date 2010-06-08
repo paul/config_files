@@ -15,3 +15,6 @@ alias gp='git pull'
 alias gpu='git push'
 alias ga='git add .'
 alias gb='git branch'
+
+alias grm="git status | grep deleted | awk '{ print \$3 }' | xargs git rm"
+alias grml="git status | grep deleted | awk '{ print \$3 }'"
