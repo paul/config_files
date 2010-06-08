@@ -36,6 +36,8 @@ setopt histignoredups
 
 # keep more history
 export HISTSIZE=200
+export HISTFILE=~/.zsh_history
+export SAVEHIST=200
 
 # Key Bindings
 
@@ -84,6 +86,7 @@ setopt auto_pushd           # make cd push the old directory onto the directory 
 setopt nonomatch            # try to avoid the 'zsh: no matches found...'
 setopt nobeep               # avoid "beep"ing
 
+if [[ -s $HOME/.zsh/ssbe-web.zsh ]] ; then source $HOME/.zsh/ssbe-web.zsh ; fi
 
 if [[ -s /Users/rando/.rvm/scripts/rvm ]] ; then source /Users/rando/.rvm/scripts/rvm ; fi
 
