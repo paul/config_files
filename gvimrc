@@ -7,14 +7,13 @@ set vb
 
 " No toolbar
 set guioptions-=T
+set guioptions-=r
 
 " Use console dialogs
 set guioptions+=c
 
-if &background == "dark"
-  hi normal guibg=black
-  set transp=8
-endif
+hi normal guibg=black
+set transp=8
 
 " Local config
 if filereadable($HOME . "/.gvimrc.local")
