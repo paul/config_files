@@ -19,6 +19,7 @@ map Q gq
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
 
+set t_Co=8
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -69,6 +70,9 @@ set nobackup
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
+
+" Strip trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Use Ack instead of Grep when available
 if executable("ack")
