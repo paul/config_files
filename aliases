@@ -4,10 +4,13 @@ alias t="tail -f"
 alias ls='ls -GF1h '
 alias ll='ls -al'
 
-alias grep='egrep --color=tty'
+alias grep='grep --color=tty'
+
+alias g=growl-cmd
 
 # Git
-alias g="git"
+alias git=hub
+
 alias gc='git commit'
 alias gco='git checkout'
 alias gst='git status'
@@ -18,3 +21,8 @@ alias gb='git branch'
 
 alias grm="git status | grep deleted | awk '{ print \$3 }' | xargs git rm"
 alias grml="git status | grep deleted | awk '{ print \$3 }'"
+
+# Git flow
+alias gf="git flow"
+alias gff="git flow feature"
+

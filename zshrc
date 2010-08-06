@@ -1,3 +1,4 @@
+
 # completion
 autoload -U compinit
 compinit
@@ -19,11 +20,15 @@ if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
-# aliases
+# EC2 keys
 if [ -e "$HOME/.ec2" ]; then
   source "$HOME/.ec2/env.sh"
 fi
 
+# dcurl
+if [ -e "$HOME/bin/ssbe-web.zsh" ]; then
+  source "$HOME/bin/ssbe-web.zsh"
+fi
 
 # expand functions in the prompt
 setopt prompt_subst
@@ -89,4 +94,6 @@ setopt nobeep               # avoid "beep"ing
 if [[ -s $HOME/.zsh/ssbe-web.zsh ]] ; then source $HOME/.zsh/ssbe-web.zsh ; fi
 
 if [[ -s /Users/rando/.rvm/scripts/rvm ]] ; then source /Users/rando/.rvm/scripts/rvm ; fi
+
+. ~/.zlogin
 

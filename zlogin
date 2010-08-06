@@ -83,3 +83,4 @@ _cucumber_features() {
 }
 compdef _cucumber_features cuc
 
+cd

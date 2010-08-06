@@ -19,14 +19,17 @@ map Q gq
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
 
-set t_Co=8
+"set t_Co=8
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  set t_Co=256
-  syntax on
-  colorscheme xoria256
-endif
+" if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+"   set t_Co=256
+"   syntax on
+"   colorscheme xoria256
+" endif
+syntax on
+colorscheme ir_black
+
 
 " Do clever indent things. Dont make comments force column 0
 set autoindent
@@ -69,7 +72,7 @@ set noswapfile
 set nobackup
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+"set list listchars=tab:»·,trail:·
 
 " Strip trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -146,24 +149,24 @@ let mapleader = "\\"
 map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>i :Rintegrationtest 
-map <Leader>h :Rhelper 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
-map <Leader>si :RSintegrationtest 
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>i :Rintegrationtest
+map <Leader>h :Rhelper
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
+map <Leader>si :RSintegrationtest
 
 " Hide search highlighting
 map <Leader>l :set invhls <CR>
