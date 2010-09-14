@@ -1,245 +1,177 @@
-" Use Vim settings, rather then Vi settings (much better!).
+" Use vim settings, rather then vi settings (much better!)
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" Use pathogen to easily modify the runtime path to include all plugins under
+" the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
-set nobackup
-set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+" Editing behaviour {{{
+filetype on                     " set filetype stuff to on
+filetype plugin on
+filetype indent on
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+set nowrap                      " don't wrap lines
+set tabstop=4                   " a tab is four spaces
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set autoindent                  " always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
+set number                      " always show line numbers
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch                   " set show matching parenthesis
+" set foldenable                  " enable folding
+" set foldcolumn=2                " add a fold column
+" set foldmethod=marker           " detect triple-{ style fold markers
+" set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+                                " which commands trigger auto-unfold
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+                                "    case-sensitive otherwise
+set smarttab                    " insert tabs on the start of a line according to
+                                "    shiftwidth, not tabstop
+set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
+set virtualedit=all             " allow the cursor to go in to "invalid" places
+set hlsearch                    " highlight search terms
+set incsearch                   " show search matches as you type
+set nolist                      " don't show invisible characters by default
+set listchars=tab:»·,trail:·,extends:#,nbsp:·
+set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
+                                "    paste mode, where you can paste mass data
+                                "    that won't be autoindented
+set mouse=a                     " enable using the mouse if terminal emulator
+                                "    supports it (xterm does)
 
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
+" Speed up scrolling of the viewport slightly
+nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 2<C-y>
+" }}}
 
-"set t_Co=8
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-" if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-"   set t_Co=256
-"   syntax on
-"   colorscheme xoria256
-" endif
-syntax on
-colorscheme ir_black
+" Editor layout {{{
+set termencoding=utf-8
+set encoding=utf-8
+set lazyredraw                  " don't update the display while executing macros
+set laststatus=2                " tell VIM to always put a status line in, even
+                                "    if there is only one window
+set showtabline=2               " show a tabbar on top, always
+set cmdheight=2                 " use a status bar that is 2 rows high
+" }}}
 
+" Vim behaviour {{{
+set hidden                      " hide buffers instead of closing them this
+                                "    means that the current buffer can be put
+                                "    to background without being written; and
+                                "    that marks and undo history are preserved
+set switchbuf=useopen,usetab    " reveal already opened files from the
+                                " quickfix window instead of opening new
+                                " buffers
+set history=1000                " remember more commands and search history
+set undolevels=1000             " use many muchos levels of undo
+set nobackup                    " do not keep backup files, it's 70's style cluttering
+set noswapfile                  " do not write annoying intermediate swap files,
+                                "    who did ever restore from swap files anyway?
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+                                " store swap files in one of these directories
+set viminfo='20,\"80            " read/write a .viminfo file, don't store more
+                                "    than 80 lines of registers
+set wildmenu                    " make tab completion for files/buffers act like bash
+set wildmode=list:full          " show a list when pressing tab and complete
+                                "    first full match
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                       " change the terminal's title
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+set showcmd                     " show (partial) command in the last line of the screen
+                                "    this also shows visual selection info
+set modeline                    " allow files to include a 'mode line', to
+                                "    override vim defaults
+set modelines=5                 " check the first 5 lines for a modeline
+" }}}
 
-" Do clever indent things. Dont make comments force column 0
-set autoindent
-set smartindent
-
-set viminfo='1000,f1,:1000,/1000
-set history=500
-
-" Try to show more context when scrolling
-set scrolloff=5
-set sidescrolloff=10
-
-" Softtabs, 2 spaces
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
-" Always display the status line
-set laststatus=2
-
-" make the mouse do cool shit
-set mouse=a
-
-" Write files when switching buffers
-set autowriteall
-
-" Search options
-set hlsearch
-set incsearch
-
-" Show full tags when searching
-set showfulltag
-
-" There are not word dividers
-set iskeyword=@,$,_
-
-" Dont pollute with swapfiles
-set noswapfile
-set nobackup
-
-" Display extra whitespace
-"set list listchars=tab:»·,trail:·
-
-" Strip trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
+" Highlighting {{{
+if &t_Co >= 256 || has("gui_running")
+   colorscheme ir_black
 endif
 
-" Color scheme
-"colorscheme vividrando
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
-" Numbers
-set number
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
-
-" Use the cool tabcomplete menu
-set wildmenu
-" Tab completion options
-"set wildmode=list:longest,list:full
-"set complete=.,t
-
-" Tags
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" if has("folding")
-"   set foldenable
-"   set foldmethod=syntax
-"   set foldlevel=1
-"   set foldnestmax=2
-"   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-" endif
-
-" \ is the leader character
-let mapleader = "\\"
-
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
-
-" Leader shortcuts for Rails commands
-map <Leader>m :Rmodel
-map <Leader>c :Rcontroller
-map <Leader>v :Rview
-map <Leader>u :Runittest
-map <Leader>f :Rfunctionaltest
-map <Leader>i :Rintegrationtest
-map <Leader>h :Rhelper
-map <Leader>tm :RTmodel
-map <Leader>tc :RTcontroller
-map <Leader>tv :RTview
-map <Leader>tu :RTunittest
-map <Leader>tf :RTfunctionaltest
-map <Leader>sm :RSmodel
-map <Leader>sc :RScontroller
-map <Leader>sv :RSview
-map <Leader>su :RSunittest
-map <Leader>sf :RSfunctionaltest
-map <Leader>si :RSintegrationtest
-
-" Hide search highlighting
-map <Leader>l :set invhls <CR>
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Maps autocomplete to tab
-imap <Tab> <C-P>
-
-" Duplicate a selection
-" Visual mode: D
-vmap D y'>p
-
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
-" No Help, please
-nmap <F1> <Esc>
-
-" Press ^F from insert mode to insert the current file name
-imap <C-F> <C-R>=expand("%")<CR>
-
-" Press Shift+P while in visual mode to replace the selection without
-" overwriting the default register
-vmap P p :call setreg('"', getreg('0')) <CR>
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
-
-" Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
+if &t_Co > 2 || has("gui_running")
+   syntax on                    " switch syntax highlighting on, when the terminal has colors
+   colorscheme ir_black
 endif
+" }}}
 
-" Window navigation
-nmap <C-J> <C-W><C-J>
-nmap <C-K> <C-W><C-K>
-nmap <C-L> <C-W><C-L>
-nmap <C-H> <C-W><C-H>
+" Shortcut mappings {{{
+" Since I never use the ; key anyway, this is a real optimization for almost
+" all Vim commands, since we don't have to press that annoying Shift key that
+" slows the commands down
+nnoremap ; :
 
-" disable arrow keys
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-map <up> <nop>
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
 
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-imap <up> <nop>
+" make p in Visual mode replace the selected text with the yank register
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
-" Make arrow keys useful again
-map <down> <ESC>:bn<RETURN>
-map <right> <ESC>:Tlist<RETURN>
-map <left> <ESC>:NERDTreeToggle<RETURN>
-map <up> <ESC>:bp<RETURN>
+" Swap implementations of ` and ' jump to markers
+" By default, ' jumps to the marked line, ` jumps to the marked line and
+" column, so swap them
+nnoremap ' `
+nnoremap ` '
 
-map <C-l> <C-w>l
+" Change the mapleader from \ to ,
+let mapleader=","
+
+" Use the damn hjkl keys
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
+" Remap j and k to act as expected when used on long, wrapped, lines
+nnoremap j gj
+nnoremap k gk
+
+" Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-map <C-tab> <C-w>p
+map <C-l> <C-w>l
 
-nnoremap <Space> :
+" Complete whole filenames/lines with a quicker shortcut key in insert mode
+imap <C-f> <C-x><C-f>
+imap <C-l> <C-x><C-l>
+
+" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nmap <silent> ,d "_d
+vmap <silent> ,d "_d
+
+" Edit the vimrc file
+nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,sv :so $MYVIMRC<CR>
+
+" Clears the search register
+nmap <silent> ,/ :let @/=""<CR>
+
+" Quick alignment of text
+nmap ,al :left<CR>
+nmap ,ar :right<CR>
+nmap ,ac :center<CR>
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
+
+" Pull word under cursor into LHS of a substitute
+nmap ,z :%s#\<<C-r>=expand("<cword>")<CR>\>#
+
+" }}}
+
+" Conflict markers {{{
+" highlight conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" shortcut to jump to next conflict marker
+nmap <silent> ,c /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
+" }}}
+
 

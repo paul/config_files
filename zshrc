@@ -12,6 +12,8 @@ export EDITOR=vim
 export PAGER=most
 export SHELL=/bin/zsh
 
+export VIM_APP_DIR=/Applications/Development
+
 # Homebrew
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
