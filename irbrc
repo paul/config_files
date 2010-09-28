@@ -4,20 +4,25 @@ ARGV << "--readline"
 require 'pp'
 require 'rubygems'
 
-begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
-rescue LoadError
-  warn "Wirble not available"
+def try_require(lib, &block)
+  begin
+    require lib
+    yield if block_given?
+  rescue LoadError
+    warn "#{lib} gem not available"
+  end
 end
 
-begin
-  require 'hirb'
-  Hirb::View.enable
-rescue LoadError
-  warn "Hirb not available"
+try_require 'wirble' do
+  Wirble.init
+  Wirble.colorize
 end
+
+try_require 'hirb' do
+  Hirb::View.enable
+end
+
+try_require 'ap'
 
 require 'irb/completion'
 require 'irb/ext/save-history'
