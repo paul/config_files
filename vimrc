@@ -12,19 +12,24 @@ filetype on                     " set filetype stuff to on
 filetype plugin on
 filetype indent on
 
-set nowrap                      " don't wrap lines
-set tabstop=4                   " a tab is four spaces
+set wrap                        " wrap lines
+set tabstop=2                   " a tab is TWO spaces
+set softtabstop=2
+set shiftwidth=2
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set autoindent                  " always set autoindenting on
 set copyindent                  " copy the previous indentation on autoindenting
+set expandtab
 set number                      " always show line numbers
 set shiftwidth=4                " number of spaces to use for autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch                   " set show matching parenthesis
-" set foldenable                  " enable folding
-" set foldcolumn=2                " add a fold column
-" set foldmethod=marker           " detect triple-{ style fold markers
-" set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+set foldenable                  " enable folding
+set foldcolumn=2                " add a fold column
+"set foldmethod=marker           " detect triple-{ style fold markers
+set foldmethod=syntax
+let g:SimpleFold_use_subfolds = 0
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
                                 " which commands trigger auto-unfold
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
@@ -46,6 +51,13 @@ set mouse=a                     " enable using the mouse if terminal emulator
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
+
+" There are not word dividers
+set iskeyword=@,$,_
+
+" Strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " }}}
 
 " Editor layout {{{
@@ -54,8 +66,8 @@ set encoding=utf-8
 set lazyredraw                  " don't update the display while executing macros
 set laststatus=2                " tell VIM to always put a status line in, even
                                 "    if there is only one window
-set showtabline=2               " show a tabbar on top, always
-set cmdheight=2                 " use a status bar that is 2 rows high
+"set showtabline=2               " show a tabbar on top, always
+"set cmdheight=2                 " use a status bar that is 2 rows high
 " }}}
 
 " Vim behaviour {{{
@@ -87,6 +99,18 @@ set showcmd                     " show (partial) command in the last line of the
 set modeline                    " allow files to include a 'mode line', to
                                 "    override vim defaults
 set modelines=5                 " check the first 5 lines for a modeline
+
+" Try to show more context when scrolling
+set scrolloff=5
+set sidescrolloff=10
+
+" There are not word dividers
+set iskeyword=@,$
+
+" Dont pollute with swapfiles
+set noswapfile
+set nobackup
+
 " }}}
 
 " Highlighting {{{
@@ -128,14 +152,23 @@ let mapleader=","
 " map <left> <nop>
 " map <right> <nop>
 " Remap j and k to act as expected when used on long, wrapped, lines
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-tab> <C-w>p
+
+nnoremap <Space> :
+
+" Make arrow keys useful again
+map <down> <ESC>:bn<RETURN>
+"map <right> <ESC>:Tlist<RETURN>
+"map <left> <ESC>:NERDTreeToggle<RETURN>
+map <up> <ESC>:bp<RETURN>
 
 " Complete whole filenames/lines with a quicker shortcut key in insert mode
 imap <C-f> <C-x><C-f>
@@ -164,6 +197,10 @@ cmap w!! w !sudo tee % >/dev/null
 " Pull word under cursor into LHS of a substitute
 nmap ,z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
+" Maps autocomplete to tab
+imap <Tab> <C-P>
+
+
 " }}}
 
 " Conflict markers {{{
@@ -173,5 +210,4 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " shortcut to jump to next conflict marker
 nmap <silent> ,c /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
 " }}}
-
 
