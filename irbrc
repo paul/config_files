@@ -32,7 +32,7 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 IRB.conf[:AUTO_INDENT]  = true
 
-# Log to STDOUT if in Rails
+# Log to STDOUT if in Rails 2
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   require 'logger'
   RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
@@ -50,4 +50,7 @@ if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   # Set default prompt
   IRB.conf[:PROMPT_MODE] = :CUSTOM
 end
+
+# Log to STDOUT if in Rails 3
+ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(Rails::Console)
 
