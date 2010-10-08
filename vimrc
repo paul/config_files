@@ -31,7 +31,7 @@ set showmatch                   " set show matching parenthesis
 " let g:SimpleFold_use_subfolds = 0
 " set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
                                 " which commands trigger auto-unfold
-set ignorecase                  " ignore case when searching
+"set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
                                 "    case-sensitive otherwise
 set smarttab                    " insert tabs on the start of a line according to
@@ -105,7 +105,7 @@ set scrolloff=5
 set sidescrolloff=10
 
 " There are not word dividers
-set iskeyword=@,$
+set iskeyword=@,$,_
 
 " Dont pollute with swapfiles
 set noswapfile
