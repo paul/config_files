@@ -52,5 +52,5 @@ if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
 end
 
 # Log to STDOUT if in Rails 3
-ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(Rails::Console)
+Rails.logger = Logger.new(STDOUT) if defined?(Rails::Console)
 
