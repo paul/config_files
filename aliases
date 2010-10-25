@@ -26,3 +26,6 @@ alias grml="git status | grep deleted | awk '{ print \$3 }'"
 alias gf="git flow"
 alias gff="git flow feature"
 
+# Rails
+alias r=rails
+
