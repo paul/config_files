@@ -37,7 +37,6 @@ set smartcase                   " ignore case if search pattern is all lowercase
 set smarttab                    " insert tabs on the start of a line according to
                                 "    shiftwidth, not tabstop
 set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
-set virtualedit=all             " allow the cursor to go in to "invalid" places
 set hlsearch                    " highlight search terms
 set incsearch                   " show search matches as you type
 set nolist                      " don't show invisible characters by default
@@ -51,9 +50,6 @@ set mouse=a                     " enable using the mouse if terminal emulator
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
-
-" There are not word dividers
-set iskeyword=@,$,_
 
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -88,11 +84,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set viminfo='20,\"80            " read/write a .viminfo file, don't store more
                                 "    than 80 lines of registers
 set wildmenu                    " make tab completion for files/buffers act like bash
-set wildmode=list:full          " show a list when pressing tab and complete
-                                "    first full match
+set wildmode=longest:full,full  " show a list when pressing tab and complete
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                       " change the terminal's title
-set visualbell                  " don't beep
+"set visualbell                  " don't beep
 set noerrorbells                " don't beep
 set showcmd                     " show (partial) command in the last line of the screen
                                 "    this also shows visual selection info
@@ -105,7 +100,8 @@ set scrolloff=5
 set sidescrolloff=10
 
 " There are not word dividers
-set iskeyword=@,$,_
+set iskeyword+=$
+set iskeyword+=_
 
 " Dont pollute with swapfiles
 set noswapfile

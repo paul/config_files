@@ -95,7 +95,7 @@ setopt nobeep               # avoid "beep"ing
 
 if [[ -s $HOME/.zsh/ssbe-web.zsh ]] ; then source $HOME/.zsh/ssbe-web.zsh ; fi
 
-if [[ -s /Users/rando/.rvm/scripts/rvm ]] ; then source /Users/rando/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 . ~/.zlogin
 

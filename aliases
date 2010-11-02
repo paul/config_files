@@ -1,12 +1,14 @@
 
 alias t="tail -f"
 
-alias ls='ls -GF1h '
+alias ls='ls -F1h --color '
 alias ll='ls -al'
 
 alias grep='grep --color=tty'
 
 alias g=growl-cmd
+
+alias y=yaourt
 
 # Git
 alias git=hub

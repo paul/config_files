@@ -1,0 +1,369 @@
+# Mrxvt.foreground: white
+# Mrxvt.background: black
+
+#Mrxvt.transparent: True
+#Mrxvt.shading: 85
+#Mrxvt.Pixmap: /home/rando/backgrounds/grass.jpg
+
+Mrxvt.saveLines: 2000
+Mrxvt.hideButtons: True
+Mrxvt.showMenu: False
+Mrxvt.scrollBar: False
+Mrxvt.bottomTabbar: False
+Mrxvt.autohideTabbar: True
+
+Mrxvt.syncTabTitle: True
+
+#
+# ---------------------------------- FONTS ----------------------------------- #
+#
+Mrxvt.xft:                      1
+Mrxvt.xftFont:                  "Envy Code R"
+Mrxvt.boldFont:                 "Envy Code R":bold
+Mrxvt.xftSize:                  10
+Mrxvt.xftAntialias:             0
+
+# Mrxvt.font: sabvga
+
+# Mrxvt.font: -cannam-codec terminal text-medium-*-*-*-15-*-*-*-*-*-*-*
+# Mrxvt.font: -*-terminus-*-*-*-*-10-*-*-*-*-*-*
+# Mrxvt.font1: -*-terminus-*-*-*-*-14-*-*-*-*-*-*
+# Mrxvt.font2: -*-fixed-*-*-*-*-12-*-*-*-*-*-*
+# Mrxvt.font3: -*-fixed-*-*-*-*-14-*-*-*-*-*-*
+# Mrxvt.font4: -*-profont-*-*-*-*-11-*-*-*-*-*-*
+# Mrxvt.font5: -*-profont-*-*-*-*-15-*-*-*-*-*-*
+
+# The options below are better set using ~/.fonts.config. Mrxvt will use the
+# defaults passed to the fontconfig library.
+#
+# Mrxvt.xftHinting:             1
+# Mrxvt.xftAutoHint:            1
+# Mrxvt.xftGlobalAdvance:       1
+# Mrxvt.xftRGBA:                rgb
+# Mrxvt.xftslow:                1
+
+# Don't load a multi-char font. This will reduce the line space if your multi
+# char font has different dimensions than the regular font. You might need to
+# comment it out if you want to use XIM and non-english fonts.
+# Mrxvt.xftNomFont:               1
+
+
+
+#
+# ---------------------------------- CURSOR ---------------------------------- #
+#
+Mrxvt.cursorBlink:              true
+Mrxvt.cursorColor:              #00ff00
+Mrxvt.cursorColor2:             #004400
+
+#
+# ---------------------------------- COLORS ---------------------------------- #
+#
+
+# # Setup colors for a black background.
+Mrxvt.background:               #000000
+Mrxvt.foreground:               #CCCCCC
+#
+
+# Display bold and underlined text in color, rather than using the terminal
+# attributes. This makes reading man pages a little easier.
+Mrxvt.colorBD:                  #00afaf
+Mrxvt.colorUL:                  #00af00
+# Mrxvt.colorRV:                #000040
+
+# Display the X selection as highlighted instead of using reverse video.
+Mrxvt.highlightColor:           #303060
+
+# Colors when terminal window looses focus. (Does not work well with Xft).
+# Mrxvt.ufBackground:           yellow
+# Mrxvt.backgroundFade:         50
+
+# Standard loud colors
+# Mrxvt.color0:	#000000
+# Mrxvt.color1:	#af0000
+# Mrxvt.color2:	#00af00
+# Mrxvt.color3:	#afaf00
+# Mrxvt.color4:	#005faf
+# Mrxvt.color5:	#af00af
+# Mrxvt.color6:	#00afaf
+# Mrxvt.color7:	#9a9a9a
+# Mrxvt.color8:	#5f5f5f
+# Mrxvt.color9:	#d70000
+# Mrxvt.color10:	#00d700
+# Mrxvt.color11:	#d7d700
+# Mrxvt.color12:	#005fd7
+# Mrxvt.color13:	#9a009a
+# Mrxvt.color14:	#009ad7
+# Mrxvt.color15:	#d7d7d7
+
+# ir_black colors
+# Colors Bright Colors
+# Black #4E4E4E #7C7C7C
+# Red #FF6C60 #FFB6B0
+# Green #A8FF60 #CEFFAB
+# Yellow #FFFFB6 #FFFFCB
+# Blue #96CBFE #FFFFCB
+# Magenta #FF73FD #FF9CFE
+# Cyan #C6C5FE #DFDFFE
+# White #EEEEEE #FFFFFF
+
+Mrxvt.color0:	#7C7C7C
+Mrxvt.color1:	#FF6C60
+Mrxvt.color2:	#A8FF60
+Mrxvt.color3:	#FFFFB6
+Mrxvt.color4:	#96CBFE
+Mrxvt.color5:	#FF73FD
+Mrxvt.color6:	#C6C5FE
+Mrxvt.color7:	#EEEEEE
+
+Mrxvt.color8:	#A0A0A0
+Mrxvt.color9:	#FFB6B0
+Mrxvt.color10:	#CEFFAB
+Mrxvt.color11:	#FFFFCB
+Mrxvt.color12:	#9696FF
+Mrxvt.color13:	#FF9CFE
+Mrxvt.color14:	#DFDFFE
+Mrxvt.color15:	#FFFFFF
+
+#Current palette (Brightness: #5fafd7, Colormap: standard)
+#000000, cterm 16       : black
+#af0000, cterm 124      : darkred
+#00af00, cterm 34       : darkgreen
+#afaf00, cterm 142      : darkyellow
+#0000af, cterm 19       : darkblue
+#af00af, cterm 127      : darkmagenta
+#00afaf, cterm 37       : darkcyan
+#9a9a9a, cterm 247      : grey
+#5f5f5f, cterm 241      : darkgrey
+#d70000, cterm 160      : red
+#00d700, cterm 40       : green
+#d7d700, cterm 184      : yellow
+#0000d7, cterm 20       : blue
+#d700d7, cterm 164      : magenta
+#00d7d7, cterm 44       : cyan
+#d7d7d7, cterm 253      : white
+
+# Make double click select whole URL's
+Mrxvt.cutChars:                 :=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
+
+# Blank the mouse pointer on keystrokes or after 10 seconds of inactivity.
+Mrxvt.pointerBlank:             True
+Mrxvt.pointerBlankDelay:        10
+
+mrxvt.color16:  #000000
+mrxvt.color17:  #00005f
+mrxvt.color18:  #000087
+mrxvt.color19:  #0000af
+mrxvt.color20:  #0000d7
+mrxvt.color21:  #0000ff
+mrxvt.color22:  #005f00
+mrxvt.color23:  #005f5f
+mrxvt.color24:  #005f87
+mrxvt.color25:  #005faf
+mrxvt.color26:  #005fd7
+mrxvt.color27:  #005fff
+mrxvt.color28:  #008700
+mrxvt.color29:  #00875f
+mrxvt.color30:  #008787
+mrxvt.color31:  #0087af
+mrxvt.color32:  #0087d7
+mrxvt.color33:  #0087ff
+mrxvt.color34:  #00af00
+mrxvt.color35:  #00af5f
+mrxvt.color36:  #00af87
+mrxvt.color37:  #00afaf
+mrxvt.color38:  #00afd7
+mrxvt.color39:  #00afff
+mrxvt.color40:  #00d700
+mrxvt.color41:  #00d75f
+mrxvt.color42:  #00d787
+mrxvt.color43:  #00d7af
+mrxvt.color44:  #00d7d7
+mrxvt.color45:  #00d7ff
+mrxvt.color46:  #00ff00
+mrxvt.color47:  #00ff5f
+mrxvt.color48:  #00ff87
+mrxvt.color49:  #00ffaf
+mrxvt.color50:  #00ffd7
+mrxvt.color51:  #00ffff
+mrxvt.color52:  #5f0000
+mrxvt.color53:  #5f005f
+mrxvt.color54:  #5f0087
+mrxvt.color55:  #5f00af
+mrxvt.color56:  #5f00d7
+mrxvt.color57:  #5f00ff
+mrxvt.color58:  #5f5f00
+mrxvt.color59:  #5f5f5f
+mrxvt.color60:  #5f5f87
+mrxvt.color61:  #5f5faf
+mrxvt.color62:  #5f5fd7
+mrxvt.color63:  #5f5fff
+mrxvt.color64:  #5f8700
+mrxvt.color65:  #5f875f
+mrxvt.color66:  #5f8787
+mrxvt.color67:  #5f87af
+mrxvt.color68:  #5f87d7
+mrxvt.color69:  #5f87ff
+mrxvt.color70:  #5faf00
+mrxvt.color71:  #5faf5f
+mrxvt.color72:  #5faf87
+mrxvt.color73:  #5fafaf
+mrxvt.color74:  #5fafd7
+mrxvt.color75:  #5fafff
+mrxvt.color76:  #5fd700
+mrxvt.color77:  #5fd75f
+mrxvt.color78:  #5fd787
+mrxvt.color79:  #5fd7af
+mrxvt.color80:  #5fd7d7
+mrxvt.color81:  #5fd7ff
+mrxvt.color82:  #5fff00
+mrxvt.color83:  #5fff5f
+mrxvt.color84:  #5fff87
+mrxvt.color85:  #5fffaf
+mrxvt.color86:  #5fffd7
+mrxvt.color87:  #5fffff
+mrxvt.color88:  #870000
+mrxvt.color89:  #87005f
+mrxvt.color90:  #870087
+mrxvt.color91:  #8700af
+mrxvt.color92:  #8700d7
+mrxvt.color93:  #8700ff
+mrxvt.color94:  #875f00
+mrxvt.color95:  #875f5f
+mrxvt.color96:  #875f87
+mrxvt.color97:  #875faf
+mrxvt.color98:  #875fd7
+mrxvt.color99:  #875fff
+mrxvt.color100: #878700
+mrxvt.color101: #87875f
+mrxvt.color102: #878787
+mrxvt.color103: #8787af
+mrxvt.color104: #8787d7
+mrxvt.color105: #8787ff
+mrxvt.color106: #87af00
+mrxvt.color107: #87af5f
+mrxvt.color108: #87af87
+mrxvt.color109: #87afaf
+mrxvt.color110: #87afd7
+mrxvt.color111: #87afff
+mrxvt.color112: #87d700
+mrxvt.color113: #87d75f
+mrxvt.color114: #87d787
+mrxvt.color115: #87d7af
+mrxvt.color116: #87d7d7
+mrxvt.color117: #87d7ff
+mrxvt.color118: #87ff00
+mrxvt.color119: #87ff5f
+mrxvt.color120: #87ff87
+mrxvt.color121: #87ffaf
+mrxvt.color122: #87ffd7
+mrxvt.color123: #87ffff
+mrxvt.color124: #af0000
+mrxvt.color125: #af005f
+mrxvt.color126: #af0087
+mrxvt.color127: #af00af
+mrxvt.color128: #af00d7
+mrxvt.color129: #af00ff
+mrxvt.color130: #af5f00
+mrxvt.color131: #af5f5f
+mrxvt.color132: #af5f87
+mrxvt.color133: #af5faf
+mrxvt.color134: #af5fd7
+mrxvt.color135: #af5fff
+mrxvt.color136: #af8700
+mrxvt.color137: #af875f
+mrxvt.color138: #af8787
+mrxvt.color139: #af87af
+mrxvt.color140: #af87d7
+mrxvt.color141: #af87ff
+mrxvt.color142: #afaf00
+mrxvt.color143: #afaf5f
+mrxvt.color144: #afaf87
+mrxvt.color145: #afafaf
+mrxvt.color146: #afafd7
+mrxvt.color147: #afafff
+mrxvt.color148: #afd700
+mrxvt.color149: #afd75f
+mrxvt.color150: #afd787
+mrxvt.color151: #afd7af
+mrxvt.color152: #afd7d7
+mrxvt.color153: #afd7ff
+mrxvt.color154: #afff00
+mrxvt.color155: #afff5f
+mrxvt.color156: #afff87
+mrxvt.color157: #afffaf
+mrxvt.color158: #afffd7
+mrxvt.color159: #afffff
+mrxvt.color160: #d70000
+mrxvt.color161: #d7005f
+mrxvt.color162: #d70087
+mrxvt.color163: #d700af
+mrxvt.color164: #d700d7
+mrxvt.color165: #d700ff
+mrxvt.color166: #d75f00
+mrxvt.color167: #d75f5f
+mrxvt.color168: #d75f87
+mrxvt.color169: #d75faf
+mrxvt.color170: #d75fd7
+mrxvt.color171: #d75fff
+mrxvt.color172: #d78700
+mrxvt.color173: #d7875f
+mrxvt.color174: #d78787
+mrxvt.color175: #d787af
+mrxvt.color176: #d787d7
+mrxvt.color177: #d787ff
+mrxvt.color178: #d7af00
+mrxvt.color179: #d7af5f
+mrxvt.color180: #d7af87
+mrxvt.color181: #d7afaf
+mrxvt.color182: #d7afd7
+mrxvt.color183: #d7afff
+mrxvt.color184: #d7d700
+mrxvt.color185: #d7d75f
+mrxvt.color186: #d7d787
+mrxvt.color187: #d7d7af
+mrxvt.color188: #d7d7d7
+mrxvt.color189: #d7d7ff
+mrxvt.color190: #d7ff00
+mrxvt.color191: #d7ff5f
+mrxvt.color192: #d7ff87
+mrxvt.color193: #d7ffaf
+mrxvt.color194: #d7ffd7
+mrxvt.color195: #d7ffff
+mrxvt.color196: #ff0000
+mrxvt.color197: #ff005f
+mrxvt.color198: #ff0087
+mrxvt.color199: #ff00af
+mrxvt.color200: #ff00d7
+mrxvt.color201: #ff00ff
+mrxvt.color202: #ff5f00
+mrxvt.color203: #ff5f5f
+mrxvt.color204: #ff5f87
+mrxvt.color205: #ff5faf
+mrxvt.color206: #ff5fd7
+mrxvt.color207: #ff5fff
+mrxvt.color208: #ff8700
+mrxvt.color209: #ff875f
+mrxvt.color210: #ff8787
+mrxvt.color211: #ff87af
+mrxvt.color212: #ff87d7
+mrxvt.color213: #ff87ff
+mrxvt.color214: #ffaf00
+mrxvt.color215: #ffaf5f
+mrxvt.color216: #ffaf87
+mrxvt.color217: #ffafaf
+mrxvt.color218: #ffafd7
+mrxvt.color219: #ffafff
+mrxvt.color220: #ffd700
+mrxvt.color221: #ffd75f
+mrxvt.color222: #ffd787
+mrxvt.color223: #ffd7af
+mrxvt.color224: #ffd7d7
+mrxvt.color225: #ffd7ff
+mrxvt.color226: #ffff00
+mrxvt.color227: #ffff5f
+mrxvt.color228: #ffff87
+mrxvt.color229: #ffffaf
+mrxvt.color230: #ffffd7
+mrxvt.color231: #ffffff
+

@@ -1,5 +1,6 @@
 
 ARGV << "--readline"
+IRB.conf[:USE_READLINE] = true
 
 require 'pp'
 require 'rubygems'
@@ -36,7 +37,6 @@ IRB.conf[:AUTO_INDENT]  = true
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   require 'logger'
   RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
-  #IRB.conf[:USE_READLINE] = true
 
   # Display the RAILS ENV in the prompt
   # ie : [Development]>>
