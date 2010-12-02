@@ -1,6 +1,6 @@
 " Font
-set guifont=EnvyCodeR:h12.00
-set noantialias
+set guifont=Meslo\ LG\ M\ DZ:h12
+set antialias
 
 " No audible bell
 set vb
@@ -13,10 +13,5 @@ set guioptions-=r
 set guioptions+=c
 
 hi normal guibg=black
-set transp=8
-
-" Local config
-if filereadable($HOME . "/.gvimrc.local")
-  source ~/.gvimrc.local
-endif
+set transp=5
 
