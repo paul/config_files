@@ -1,7 +1,7 @@
 
 alias t="tail -f"
 
-alias ls='ls -F1h --color '
+alias ls='ls -F1h '
 alias ll='ls -al'
 
 alias grep='grep --color=tty'
