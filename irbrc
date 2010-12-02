@@ -25,32 +25,44 @@ end
 
 try_require 'ap'
 
-require 'irb/completion'
-require 'irb/ext/save-history'
+try_require 'irb/completion'
+#try_require 'irb/ext/completion'
+try_require 'irb/ext/save-history' do
+  IRB.conf[:SAVE_HISTORY] = 1000
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+end
 
-IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 IRB.conf[:AUTO_INDENT]  = true
 
-# Log to STDOUT if in Rails 2
-if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
-  require 'logger'
-  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+if defined? Rails
 
+  env = ENV['RAILS_ENV'] || Rails.env
   # Display the RAILS ENV in the prompt
   # ie : [Development]>>
   IRB.conf[:PROMPT][:CUSTOM] = {
-   :PROMPT_N => "[#{ENV["RAILS_ENV"].capitalize}]>> ",
-   :PROMPT_I => "[#{ENV["RAILS_ENV"].capitalize}]>> ",
-   :PROMPT_S => nil,
-   :PROMPT_C => "?> ",
-   :RETURN => "=> %s\n"
-   }
+  :PROMPT_N => "[#{env.capitalize}]>> ",
+  :PROMPT_I => "[#{env.capitalize}]>> ",
+  :PROMPT_S => nil,
+  :PROMPT_C => "?> ",
+  :RETURN => "=> %s\n"
+  }
   # Set default prompt
   IRB.conf[:PROMPT_MODE] = :CUSTOM
-end
 
-# Log to STDOUT if in Rails 3
-Rails.logger = Logger.new(STDOUT) if defined?(Rails::Console)
+  require 'logger'
+  @logger = Logger.new(STDOUT)
+
+  # Log to STDOUT if in Rails 2
+  if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+    RAILS_DEFAULT_LOGGER = @logger
+  end
+
+  # Log to STDOUT if in Rails 3
+  if Rails.respond_to?(:logger)
+    Rails.logger = @logger
+    ActiveRecord::Base.logger = @logger
+  end
+
+end
 
