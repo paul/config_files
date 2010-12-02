@@ -18,6 +18,10 @@ setopt prompt_subst
 # prompt
 export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
 
+# completion
+autoload -U compinit
+compinit
+
 # autocompletion for ruby_test
 # works with tu/tf aliases
 _ruby_tests() {
